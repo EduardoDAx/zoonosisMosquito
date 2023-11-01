@@ -1,12 +1,15 @@
 import express from "express";
-import projectRoutes from './routes/project.routes.js'
+import projectRoutes from './routes/user.routes.js'
+import comRoutes from './routes/comercio.routes.js'
+import cors  from "cors";
 
 const app = express();
 
 //middleware
 app.use(express.json());
+app.use(cors());
 
 
 app.use(projectRoutes);
-
+app.use(comRoutes);
 export default app;

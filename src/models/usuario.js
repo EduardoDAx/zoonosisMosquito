@@ -31,7 +31,7 @@ isAdmin:{
 //relación de tablas 
 })
 
-Usuarios.hasOne(Comercio,{
+Usuarios.hasMany(Comercio,{
     foreingKey:'userId',
     sourceKey:'id'
 

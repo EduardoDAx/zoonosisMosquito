@@ -5,7 +5,7 @@ export const Comercio = sequelize.define('comercio',{
     id:{
         type: DataTypes.INTEGER,
         primaryKey : true , //llave primaria
-        autoIncremente :true  //incremento automatico
+        autoIncrement:true  //incremento automatico
     },
     name:{
         type :DataTypes.STRING,
