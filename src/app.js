@@ -9,7 +9,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
+app.get('/', (req,res) =>{
+    res.send('Hola Mundo')
+})
 app.use(projectRoutes);
 app.use(comRoutes);
 export default app;
