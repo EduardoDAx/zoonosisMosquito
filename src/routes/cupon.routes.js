@@ -1,5 +1,5 @@
 import { Router} from "express";
-import {getCupons,getCupon,createCupon,updateCupon,deleteCupon} from "../controllers/wal.controllers"
+import {getCupons,getCupon,createCupon,updateCupon,deleteCupon} from "../controllers/cupon.controllers"
 
 const router = Router();
 
