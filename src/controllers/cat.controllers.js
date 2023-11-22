@@ -26,10 +26,9 @@ export const getCategoria = async(req,res) =>{
 export const createCategoria = async (req,res)=>{
     try {
     
-        const{usado,tipo,description}=req.body
+        const{tipo,description}=req.body
     
         const newCategoria = await Categoria.create({
-            usado,
             tipo,
             description,
         })
