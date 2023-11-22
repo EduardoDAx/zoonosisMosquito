@@ -3,11 +3,11 @@ import { sequelize } from './database/database.js';
 import dotenv from 'dotenv';
 dotenv.config();
 const port = process.env.PORT;
-// import './models/usuario.js'
-// import './models/comercio.js'
-// import './models/wallet.js'
-// import './models/cupon.js'
-// import './models/categoria.js'
+import './models/usuario.js'
+import './models/comercio.js'
+import './models/wallet.js'
+import './models/cupon.js'
+import './models/categoria.js'
 
 async function main(){
    try {
