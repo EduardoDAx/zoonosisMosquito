@@ -11,7 +11,7 @@ export const Categoria = sequelize.define('categoria',{
     tipo:{
         type :DataTypes.STRING,
     },
-    description:{
+    Descripción:{
         type :DataTypes.STRING,
     }
     
