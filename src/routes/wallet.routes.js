@@ -1,5 +1,5 @@
 import { Router} from "express";
-import {getWallets,getWallet,createWallet,updateWallet,deleteWallet} from "../controllers/wal.controllers"
+import {getWallets,getWallet,createWallet,updateWallet,deleteWallet} from "../controllers/wal.controllers.js"
 
 const router = Router();
 
