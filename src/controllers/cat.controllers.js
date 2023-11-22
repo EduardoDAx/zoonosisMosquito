@@ -26,11 +26,11 @@ export const getCategoria = async(req,res) =>{
 export const createCategoria = async (req,res)=>{
     try {
     
-        const{tipo,description}=req.body
+        const{tipo,Descripción}=req.body
     
         const newCategoria = await Categoria.create({
             tipo,
-            description,
+            Descripción,
         })
     
         
