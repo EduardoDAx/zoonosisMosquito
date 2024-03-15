@@ -27,15 +27,15 @@ export const getCupon = async(req,res) =>{
 export const createCupon = async (req,res)=>{
     try {
     
-        const{usado,title,description,descuento,comercioId,categoriumId}=req.body
+        const{usado,title,description,descuento,comId,catId}=req.body
     
         const newCupon = await Cupon.create({
             usado,
             title,
             description,
             descuento,
-            comercioId,
-            categoriumId
+            comId,
+            catId
         })
     
         
