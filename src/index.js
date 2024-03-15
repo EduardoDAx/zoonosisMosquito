@@ -11,7 +11,7 @@ import './models/categoria.js'
 
 async function main(){
    try {
-    await sequelize.sync({force : false} );
+    await sequelize.sync({alter : true} );
     console.log("connection has been established succesfully. ")
     app.listen(port)
     console.log('Server listening on port ',port)
