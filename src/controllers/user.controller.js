@@ -27,7 +27,7 @@ export const getUser = async(req,res) =>{
 export const createUser = async(req,res) =>{
 try {
     
-        const{name,surename,email,password,isAdmin}=req.body
+        const{name,surename,age,gender,email,password,isAdmin}=req.body
     
         const newUsuario = await Usuarios.create({
             name,
