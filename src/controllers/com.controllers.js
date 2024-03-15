@@ -1,5 +1,6 @@
 
 import { Comercio } from "../models/comercio.js"
+import { Usuarios } from "../models/usuario.js"
 
 
 export const getComercios = async (req,res)=>{
@@ -12,17 +13,21 @@ export const getComercios = async (req,res)=>{
 }
 
 export const getComercio = async(req,res) =>{
-    try {
-       const {id} = req.params
-       const comercio = await Comercio.findOne({
-          where:{id}
-       })
-       if(!comercio) return res.status(404).json({message:"El comercio no existe"})
-       res.json(comercio)
-    } catch (error) {
-       return res.status(500).json({message: error.message})
-    }
-   };
+   try {
+      const {id} = req.params
+      const comercio = await Comercio.findOne({
+         where:{id},
+         include: [{
+             model: Usuarios
+         }]
+      })
+      if(!comercio) return res.status(404).json({message:"El comercio no existe"})
+      res.json(comercio)
+   } catch (error) {
+      return res.status(500).json({message: error.message})
+   }
+}
+
 
 export const createComercio = async (req,res)=>{
     try {
