@@ -17,6 +17,9 @@ export const Comercio = sequelize.define('comercio',{
     rubro:{
         type  :DataTypes.STRING,
     },
+    numerocontacto:{
+        type  :DataTypes.INTEGER,
+    },
     direccion:{
         type  :DataTypes.STRING,
     },
