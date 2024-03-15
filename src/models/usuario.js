@@ -16,6 +16,12 @@ name:{
 surename:{
     type:DataTypes.STRING,
 },
+age:{
+    type:DataTypes.INTEGER,
+},
+gender:{
+    type:DataTypes.STRING,
+},
 email:{
     type : DataTypes.STRING,
     unique   : true,// es unico

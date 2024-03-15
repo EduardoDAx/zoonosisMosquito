@@ -32,6 +32,8 @@ try {
         const newUsuario = await Usuarios.create({
             name,
             surename,
+            age,
+            gender,
             email,
             password,
             isAdmin
