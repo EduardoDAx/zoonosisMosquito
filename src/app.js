@@ -5,6 +5,7 @@ import cors  from "cors";
 import walletRoutes  from "./routes/wallet.routes.js";
 import cuponRoutes  from "./routes/cupon.routes.js";
 import catRoutes  from "./routes/category.reoutes.js";
+import { loginUser } from "./auth/authController.js";
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(cors());
 app.get('/', (req,res) =>{
     res.send('Hola Mundo')
 })
+
+app.post('/login', loginUser);
 app.use(projectRoutes);
 app.use(comRoutes);
 app.use(walletRoutes);

@@ -1,4 +1,5 @@
  import {Usuarios} from '../models/usuario.js'
+ import bcrypt from 'bcryptjs';
 
 
 
@@ -24,30 +25,33 @@ export const getUser = async(req,res) =>{
       return res.status(500).json({message: error.message})
    }
   };
-export const createUser = async(req,res) =>{
-try {
+  export const createUser = async(req,res) =>{
+   try {
+       
+           const{name,surename,age,gender,email,password,isAdmin}=req.body
+       
+           // Hashea la contraseña antes de guardar el usuario
+           const hashedPassword = await bcrypt.hash(password, 10);
+       
+           const newUsuario = await Usuarios.create({
+               name,
+               surename,
+               age,
+               gender,
+               email,
+               password: hashedPassword, // Guarda la contraseña hasheada
+               isAdmin
+           })
+       
+           
+           res.json(newUsuario)
+       }
+    catch (error) {
+       return res.status(500).json({message: error.message})
     
-        const{name,surename,age,gender,email,password,isAdmin}=req.body
-    
-        const newUsuario = await Usuarios.create({
-            name,
-            surename,
-            age,
-            gender,
-            email,
-            password,
-            isAdmin
-        })
-    
-        
-        res.json(newUsuario)
-    }
- catch (error) {
-    return res.status(500).json({message: error.message})
- 
-  }
-
-};
+     }
+   
+   };
 
 
 export const updateUsuario = async (req,res)=>{
