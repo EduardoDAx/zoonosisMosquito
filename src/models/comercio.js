@@ -18,7 +18,7 @@ export const Comercio = sequelize.define('comercio',{
         type  :DataTypes.STRING,
     },
     numerocontacto:{
-        type  :DataTypes.INTEGER,
+        type  :DataTypes.BIGINT,
     },
     direccion:{
         type  :DataTypes.STRING,
