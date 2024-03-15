@@ -8,6 +8,9 @@ export const Comercio = sequelize.define('comercio',{
         primaryKey : true , //llave primaria
         autoIncrement:true  //incremento automatico
     },
+    image:{
+        type :DataTypes.STRING,
+    },
     name:{
         type :DataTypes.STRING,
     },

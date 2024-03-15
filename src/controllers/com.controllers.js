@@ -27,9 +27,10 @@ export const getComercio = async(req,res) =>{
 export const createComercio = async (req,res)=>{
     try {
     
-        const{name,rubro,direccion,cod_Com,usuarioId}=req.body
+        const{image,name,rubro,direccion,cod_Com,usuarioId}=req.body
     
         const newComercio = await Comercio.create({
+            image,
             name,
             rubro,
             direccion,
