@@ -9,7 +9,7 @@ export const Cupon = sequelize.define('cupon', {
   },
   usuarioId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
   usado: {
     type: DataTypes.BOOLEAN,
