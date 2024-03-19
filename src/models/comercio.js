@@ -1,6 +1,6 @@
 import { DataTypes, Sequelize } from 'sequelize'
 import { sequelize } from '../database/database.js';
-import { Cupon } from './cupon.js'
+import { Descuento } from './descuento.js';
 
 export const Comercio = sequelize.define('comercio',{
     id:{
@@ -29,13 +29,13 @@ export const Comercio = sequelize.define('comercio',{
     
 })
 
-Comercio.hasMany(Cupon,{
+Comercio.hasMany(Descuento,{
     foreingKey:'comId',
-    sourceKey:'id'
-
+    sourceKey:'id',
+    allowNull: false,
 })
 
-Cupon.belongsTo(Comercio,{
+Descuento.belongsTo(Comercio,{
     foreingKey:'comId',
     targetKey: 'id'
 })

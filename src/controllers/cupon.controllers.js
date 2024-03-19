@@ -24,28 +24,21 @@ export const getCupon = async(req,res) =>{
     }
    };
 
-export const createCupon = async (req,res)=>{
-    try {
-    
-        const{usado,title,description,descuento,comercioId,categoriumId}=req.body
-    
-        const newCupon = await Cupon.create({
-            usado,
-            title,
-            description,
-            descuento,
-            comercioId,
-            categoriumId
-        })
-    
-        
-        res.json(newCupon)
-    }
- catch (error) {
-    return res.status(500).json({message: error.message})
- 
-  }
-};
+   export const createCupon = async (req,res)=>{
+      try {
+          const {descuentoId, usuarioId } = req.body
+      
+          const newCupon = await Cupon.create({
+              descuentoId,
+              usuarioId,
+              usado: false
+          })
+      
+          res.json(newCupon)
+      } catch (error) {
+          return res.status(500).json({message: error.message})
+      }
+  };
 
 
 export const updateCupon = async (req,res)=>{
