@@ -24,14 +24,14 @@ export const getDescuento = async(req,res) =>{
 
 export const createDescuento = async (req,res)=>{
     try {
-        const { title, description, descuento, comercioId,catId } = req.body
+        const { title, description, descuento, comercioId,categoriumId } = req.body
     
         const newDescuento = await Descuento.create({
             title,
             description,
             descuento,
             comercioId,
-            catId
+            categoriumId
         })
     
         res.json(newDescuento)
