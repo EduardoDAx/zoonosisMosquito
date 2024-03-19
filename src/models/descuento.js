@@ -15,7 +15,7 @@ export const Descuento = sequelize.define('descuento', {
     type: DataTypes.STRING,
   },
   descuento: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   }
 });
 
