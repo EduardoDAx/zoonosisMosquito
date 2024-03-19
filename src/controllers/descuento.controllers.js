@@ -15,7 +15,8 @@ export const getDescuento = async(req,res) =>{
     try {
        const {id} = req.params
        const descuento = await Descuento.findOne({
-          where:{id}
+          where:{id},
+          include: [{ model: Categoria }],
        })
        if(!descuento) return res.status(404).json({message:"El descuento no existe"})
        res.json(descuento)
