@@ -5,6 +5,7 @@ import { Usuarios } from '../models/usuario.js';
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(req.body);
 
     // Busca al usuario en la base de datos
     const user = await Usuarios.findOne({ where: { email } });
