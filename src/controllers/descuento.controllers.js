@@ -5,8 +5,7 @@ import { Descuento } from "../models/descuento.js"
 export const getDescuentos = async (req,res)=>{
     try {
         const descuentos = await Descuento.findAll({
-         include: [{ model: Categoria }],
-         include: [{ model: Comercio }],
+         include: [{ model: Categoria,model: Comercio }],
         })
         res.json(descuentos) 
     } catch (error) {
@@ -19,8 +18,7 @@ export const getDescuento = async(req,res) =>{
        const {id} = req.params
        const descuento = await Descuento.findOne({
           where:{id},
-          include: [{ model: Categoria }],
-          include: [{ model: Comercio }],
+          include: [{ model: Categoria,model: Comercio }],
        })
        if(!descuento) return res.status(404).json({message:"El descuento no existe"})
        res.json(descuento)
