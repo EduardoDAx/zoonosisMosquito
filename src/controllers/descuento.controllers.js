@@ -3,15 +3,19 @@ import { Comercio } from "../models/comercio.js"
 import { Descuento } from "../models/descuento.js"
 
 export const getDescuentos = async (req,res)=>{
-    try {
-        const descuentos = await Descuento.findAll({
-         include: [{ model: Categoria }, { model: Comercio }],
-        })
-        res.json(descuentos) 
-    } catch (error) {
-        return res.status(500).json({message: error.message})
-    }
+   try {
+       const descuentos = await Descuento.findAll({
+           include: [{ model: Categoria }, { model: Comercio }],
+           order: [
+               ['id', 'ASC'], // Ordena por 'id' en orden ascendente
+           ],
+       })
+       res.json(descuentos) 
+   } catch (error) {
+       return res.status(500).json({message: error.message})
+   }
 }
+
 
 export const getDescuento = async(req,res) =>{
     try {
