@@ -7,7 +7,7 @@ export const getDescuentos = async (req,res)=>{
        const descuentos = await Descuento.findAll({
            include: [{ model: Categoria }, { model: Comercio }],
            order: [
-               ['id', 'ASC'], // Ordena por 'id' en orden ascendente
+               ['id', 'DESC'], // Ordena por 'id' en orden ascendente
            ],
        })
        res.json(descuentos) 
