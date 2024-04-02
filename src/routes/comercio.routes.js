@@ -4,7 +4,7 @@ import {getComercios,createComercio,deleteComercio,updateComercio,getComercio} f
 const router = Router();
 
 
-router.get('/comercios',getComercios)
+router.get('/comercio',getComercios)
 router.post('/comercio', createComercio) 
 router.put('/comercio/:id',updateComercio) 
 router.delete('/comercio/:id',deleteComercio)
