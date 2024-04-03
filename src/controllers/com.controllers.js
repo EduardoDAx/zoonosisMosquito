@@ -11,6 +11,17 @@ export const getComercios = async (req,res)=>{
         return res.status(500).json({message: error.message})
     }
 }
+export const getoneuserComercios = async (req,res)=>{
+    try {
+      const {id} = req.params
+        const comercio = await Comercio.findAll({
+            where:{usuarioId: id}
+        })
+    res.json(comercio) 
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+}
 
 export const getComercio = async(req,res) =>{
    try {
