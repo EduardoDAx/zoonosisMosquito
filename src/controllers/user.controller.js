@@ -1,11 +1,11 @@
- import {Usuarios} from '../models/usuario.js'
- import bcrypt from 'bcryptjs';
+  import {Usuarios} from '../models/Usuarios.js'
+  import bcrypt from 'bcryptjs';
 
 
 
-export const getUsers = async(req,res) =>{
- try {
-    const usuarios = await Usuarios.findAll();
+  export const getUsers = async(req,res) =>{
+   try {
+        const usuarios = await Usuarios.findAll();
     console.log(usuarios)
     res.json(usuarios)
  } catch (error) {
@@ -28,19 +28,22 @@ export const getUser = async(req,res) =>{
   export const createUser = async(req,res) =>{
    try {
        
-           const{name,surename,age,gender,email,password,isAdmin}=req.body
+           const{nombre,apellido,dni,email,username,id_tipo,password,fecha_nacimiento,celular,}=req.body
        
            // Hashea la contraseña antes de guardar el usuario
            const hashedPassword = await bcrypt.hash(password, 10);
        
            const newUsuario = await Usuarios.create({
-               name,
-               surename,
-               age,
-               gender,
+               nombre,
+               apellido,
+               dni,
+               fecha_nacimiento,
+               celular,
                email,
-               password: hashedPassword, // Guarda la contraseña hasheada
-               isAdmin
+               username,
+               password_hash: hashedPassword, // Guarda la contraseña hasheada
+               estado:0,
+               id_tipo,
            })
        
            
