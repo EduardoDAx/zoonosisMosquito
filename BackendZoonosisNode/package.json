@@ -1,0 +1,35 @@
+{
+  "name": "backendzoonosisnode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppZoonosis/BackendZoonosisNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AppZoonosis/BackendZoonosisNode/issues"
+  },
+  "homepage": "https://github.com/AppZoonosis/BackendZoonosisNode#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-validator": "^7.2.0",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.3",
+    "sequelize-typescript": "^2.1.6"
+  }
+}
