@@ -1,13 +1,13 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createLaboratorio, getLaboratorio, getLaboratorioById, updateLaboratorio, deleteLaboratorio } from "../handlers/laboratorios";
-import { inputErrors } from "../middleware";
+import { createLaboratorio, getLaboratorio, getLaboratorioById, updateLaboratorio, deleteLaboratorio } from "../controllers/laboratorios.controller";
 
-const routerLaboratiorios = Router()
 
-routerLaboratiorios.get('/', getLaboratorio)
-routerLaboratiorios.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getLaboratorioById)
-routerLaboratiorios.post('/'
+const laboratoriosRoutes = Router()
+
+laboratoriosRoutes.get('/', getLaboratorio)
+laboratoriosRoutes.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'),getLaboratorioById)
+laboratoriosRoutes.post('/'
     ,body('colecta_ext_via').isNumeric()
     .notEmpty().withMessage('El colecta_ext_via del laboratorio no puede estar vacio')
     ,body('colecta_ext_inv').isNumeric()
@@ -34,9 +34,8 @@ routerLaboratiorios.post('/'
     .notEmpty().withMessage('El estado del laboratorio no puede estar vacio')
     ,body('id_visita').isNumeric()
     .notEmpty().withMessage('El id_visita del laboratorio no puede estar vacio')
-    ,inputErrors
-    , createLaboratorio)
-routerLaboratiorios.put('/:id'
+    ,createLaboratorio)
+laboratoriosRoutes.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('colecta_ext_via').isNumeric()
@@ -65,12 +64,10 @@ routerLaboratiorios.put('/:id'
     .notEmpty().withMessage('El estado del laboratorio no puede estar vacio')
     ,body('id_visita').isNumeric()
     .notEmpty().withMessage('El id_visita del laboratorio no puede estar vacio')
-    ,inputErrors
     ,updateLaboratorio)
-routerLaboratiorios.delete('/:id'
+laboratoriosRoutes.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
-    , deleteLaboratorio)
+    ,deleteLaboratorio)
 
-export default routerLaboratiorios
+export default laboratoriosRoutes

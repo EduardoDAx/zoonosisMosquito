@@ -3,6 +3,15 @@ import cors from "cors"; // Esto es para los permisos de quien le puede mandar p
 import userRoutes from './routes/user.routes.js';
 import { loginUser } from "./auth/authController.js";
 import tipoRoutes from './routes/tipo.routes.js';
+import asignacionSensoresRouters from "./routes/asigSensores.routes.js";
+import barrioRoutes from "./routes/barrios.routes.js";
+import delegacionroutes from "./routes/delegaciones.routes.js";
+import laboratoriosRoutes from "./routes/laboratorios.routes.js";
+import localidadesRoutes from "./routes/localidades.routes.js";
+import nombreSensoresRoutes from "./routes/nombreSensores.routes.js";
+import sitViviendasRoutes from "./routes/sitViviendas.routes.js";
+import vecinosRoutes from "./routes/vecinos.routes.js";
+import visitasRoutes from "./routes/visitas.routes.js";
 
 const app = express();
 
@@ -23,6 +32,16 @@ app.use(cors(
  app.post('/login', loginUser);
 app.use(userRoutes);
 app.use(tipoRoutes);
+app.use(asignacionSensoresRouters)
+app.use(barrioRoutes)
+app.use(delegacionroutes)
+app.use(laboratoriosRoutes)
+app.use(localidadesRoutes)
+app.use(nombreSensoresRoutes)
+app.use(sitViviendasRoutes)
+app.use(vecinosRoutes)
+app.use(visitasRoutes)
+
 // Middleware para manejar rutas no encontradas
 app.use((req, res, next) => {
     res.status(404).send('Ruta no encontrada');

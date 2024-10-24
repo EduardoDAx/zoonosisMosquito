@@ -1,22 +1,20 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createDelegacion, getDelegacion, getDelegacionById, updateDelegacion, deleteDelegacion } from "../handlers/delegaciones";
-import { inputErrors } from "../middleware";
+import { createDelegacion, getDelegacion, getDelegacionById, updateDelegacion, deleteDelegacion } from "../controllers/delegaciones.controller";
 
-const routerDelegacion = Router()
+const delegacionroutes = Router()
 
-routerDelegacion.get('/', getDelegacion)
-routerDelegacion.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getDelegacionById)
-routerDelegacion.post('/'
+delegacionroutes.get('/', getDelegacion)
+delegacionroutes.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'),getDelegacionById)
+delegacionroutes.post('/'
     ,body('nombre')
     .notEmpty().withMessage('El nombre de la delegacion no puede estar vacio')
     ,body('estado').isNumeric()
     .notEmpty().withMessage('El estado de la delegacion no puede estar vacio')
     ,body('id_localidad').isNumeric()
     .notEmpty().withMessage('El id_localidad de la delegacion no puede estar vacio')
-    ,inputErrors
-    , createDelegacion)
-routerDelegacion.put('/:id'
+    ,createDelegacion)
+delegacionroutes.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('nombre')
@@ -25,12 +23,10 @@ routerDelegacion.put('/:id'
     .notEmpty().withMessage('El estado de la delegacion no puede estar vacio')
     ,body('id_localidad').isNumeric()
     .notEmpty().withMessage('El id_localidad de la delegacion no puede estar vacio')
-    ,inputErrors
     ,updateDelegacion)
-routerDelegacion.delete('/:id'
+delegacionroutes.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
-    , deleteDelegacion)
+    ,deleteDelegacion)
 
-export default routerDelegacion
+export default delegacionroutes

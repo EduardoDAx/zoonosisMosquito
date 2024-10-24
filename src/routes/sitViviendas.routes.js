@@ -1,28 +1,25 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createSitVivienda, getSitVivienda, getSitViviendaById, updateSitVivienda, deleteSitVivienda } from "../handlers/sitViviendas";
-import { inputErrors } from "../middleware";
+import { createSitVivienda, getSitVivienda, getSitViviendaById, updateSitVivienda, deleteSitVivienda } from "../controllers/sitViviendas.controller";
 
-const routerSitViviendas = Router()
 
-routerSitViviendas.get('/', getSitVivienda)
-routerSitViviendas.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getSitViviendaById)
-routerSitViviendas.post('/'
+const sitViviendasRoutes = Router()
+
+sitViviendasRoutes.get('/', getSitVivienda)
+sitViviendasRoutes.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'),getSitViviendaById)
+sitViviendasRoutes.post('/'
     ,body('nombre')
     .notEmpty().withMessage('El nombre de sitViviendas no puede estar vacio')
-    ,inputErrors
-    , createSitVivienda)
-routerSitViviendas.put('/:id'
+    ,createSitVivienda)
+sitViviendasRoutes.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('nombre')
     .notEmpty().withMessage('El nombre de sitViviendas no puede estar vacio')
-    ,inputErrors
     ,updateSitVivienda)
-routerSitViviendas.delete('/:id'
+sitViviendasRoutes.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
-    , deleteSitVivienda)
+    ,deleteSitVivienda)
 
-export default routerSitViviendas
+export default sitViviendasRoutes

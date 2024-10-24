@@ -1,28 +1,25 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createNombreSensores, getNombreSensores, getNombreSensoresById, updateNombreSensores, deleteNombreSensores } from "../handlers/nombreSensores";
-import { inputErrors } from "../middleware";
+import { createNombreSensores, getNombreSensores, getNombreSensoresById, updateNombreSensores, deleteNombreSensores } from "../controllers/nombreSensores.controller";
 
-const routerNombreSensores = Router()
 
-routerNombreSensores.get('/', getNombreSensores)
-routerNombreSensores.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getNombreSensores)
-routerNombreSensores.post('/'
+const nombreSensoresRoutes = Router()
+
+nombreSensoresRoutes.get('/', getNombreSensores)
+nombreSensoresRoutes.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'),getNombreSensoresById)
+nombreSensoresRoutes.post('/'
     ,body('nombre')
     .notEmpty().withMessage('El nombre del sensor no puede estar vacio')
-    ,inputErrors
-    , createNombreSensores)
-routerNombreSensores.put('/:id'
+    ,createNombreSensores)
+nombreSensoresRoutes.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('nombre')
     .notEmpty().withMessage('El nombre del sensor no puede estar vacio')
-    ,inputErrors
     ,updateNombreSensores)
-routerNombreSensores.delete('/:id'
+nombreSensoresRoutes.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
-    , deleteNombreSensores)
+    ,deleteNombreSensores)
 
-export default routerNombreSensores
+export default nombreSensoresRoutes

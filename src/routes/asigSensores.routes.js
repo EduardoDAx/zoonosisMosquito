@@ -1,13 +1,13 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createAsignacionSensores, getAsignacionSensores, getAsignacionSensoresById, updateAsignacionSensores, deleteAsignacionSensores } from "../handlers/asignacionSensores";
-import { inputErrors } from "../middleware";
+import { createAsignacionSensores, getAsignacionSensores, getAsignacionSensoresById, updateAsignacionSensores, deleteAsignacionSensores } from "../controllers/asigSensores.controller";
 
-const routerAsignacionSensores = Router()
 
-routerAsignacionSensores.get('/', getAsignacionSensores)
-routerAsignacionSensores.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getAsignacionSensoresById)
-routerAsignacionSensores.post('/'
+const asignacionSensoresRouters = Router()
+
+asignacionSensoresRouters.get('/', getAsignacionSensores)
+asignacionSensoresRouters.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getAsignacionSensoresById)
+asignacionSensoresRouters.post('/'
     ,body('coordenadas_x').isNumeric()
     .notEmpty().withMessage('Las coordenadas_x de la asignaciónSensores no pueden estar vacias')
     ,body('coordenadas_y').isNumeric()
@@ -22,9 +22,8 @@ routerAsignacionSensores.post('/'
     .notEmpty().withMessage('El id_vecino de la asignaciónSensores no puede estar vacio')
     ,body('id_barrio').isNumeric()
     .notEmpty().withMessage('El id_barrio de la asignaciónSensores no puede estar vacio')
-    ,inputErrors
     , createAsignacionSensores)
-routerAsignacionSensores.put('/:id'
+asignacionSensoresRouters.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('coordenadas_x').isNumeric()
@@ -41,12 +40,10 @@ routerAsignacionSensores.put('/:id'
     .notEmpty().withMessage('El id_vecino de la asignaciónSensores no puede estar vacio')
     ,body('id_barrio').isNumeric()
     .notEmpty().withMessage('El id_barrio de la asignaciónSensores no puede estar vacio')
-    ,inputErrors
     ,updateAsignacionSensores)
-routerAsignacionSensores.delete('/:id'
+asignacionSensoresRouters.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
     , deleteAsignacionSensores)
 
-export default routerAsignacionSensores
+export default asignacionSensoresRouters

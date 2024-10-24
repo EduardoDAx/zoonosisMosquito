@@ -1,13 +1,12 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createVisitas, getVisitas, getVisitasById, updateVisitas, deleteVisitas } from "../handlers/visitas";
-import { inputErrors } from "../middleware";
+import { createVisitas, getVisitas, getVisitasById, updateVisitas, deleteVisitas } from "../controllers/visitas.controller";
 
-const routerVisitas = Router()
+const visitasRoutes = Router()
 
-routerVisitas.get('/', getVisitas)
-routerVisitas.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getVisitasById)
-routerVisitas.post('/'
+visitasRoutes.get('/', getVisitas)
+visitasRoutes.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'),getVisitasById)
+visitasRoutes.post('/'
     ,body('fecha')
     .notEmpty().withMessage('La fecha de la visita no puede estar vacia')
     ,body('colecta_ext').isNumeric()
@@ -30,9 +29,8 @@ routerVisitas.post('/'
     .notEmpty().withMessage('El id_usuario de la visita no puede estar vacio')
     ,body('id_sit_vivienda').isNumeric()
     .notEmpty().withMessage('El id_sit_vivienda de la visita no puede estar vacio')
-    ,inputErrors
-    , createVisitas)
-routerVisitas.put('/:id'
+    ,createVisitas)
+visitasRoutes.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('fecha')
@@ -57,12 +55,10 @@ routerVisitas.put('/:id'
     .notEmpty().withMessage('El id_usuario de la visita no puede estar vacio')
     ,body('id_sit_vivienda').isNumeric()
     .notEmpty().withMessage('El id_sit_vivienda de la visita no puede estar vacio')
-    ,inputErrors
     ,updateVisitas)
-routerVisitas.delete('/:id'
+visitasRoutes.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
-    , deleteVisitas)
+    ,deleteVisitas)
 
-export default routerVisitas          
+export default visitasRoutes        

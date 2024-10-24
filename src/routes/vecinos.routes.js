@@ -1,13 +1,13 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createVecino, getVecino, getVecinoById, updateVecino, deleteVecino } from "../handlers/vecinos";
-import { inputErrors } from "../middleware";
+import { createVecino, getVecino, getVecinoById, updateVecino, deleteVecino } from "../controllers/vecinos.controller";
 
-const routerVecino = Router()
 
-routerVecino.get('/', getVecino)
-routerVecino.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'), inputErrors,getVecinoById)
-routerVecino.post('/'
+const vecinosRoutes = Router()
+
+vecinosRoutes.get('/', getVecino)
+vecinosRoutes.get('/:id',param('id').isNumeric().withMessage('El id ingresado no es válido'),getVecinoById)
+vecinosRoutes.post('/'
     ,body('nombre')
     .notEmpty().withMessage('El nombre del vecino no puede estar vacio')
     ,body('apellido')
@@ -28,9 +28,8 @@ routerVecino.post('/'
     .notEmpty().withMessage('La fecha_sistema del vecino no puede estar vacia')
     ,body('estado').isNumeric()
     .notEmpty().withMessage('El estado del vecino no puede estar vacio')
-    ,inputErrors
-    , createVecino)
-routerVecino.put('/:id'
+    ,createVecino)
+vecinosRoutes.put('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
     ,body('nombre')
@@ -53,12 +52,10 @@ routerVecino.put('/:id'
     .notEmpty().withMessage('La fecha_sistema del vecino no puede estar vacia')
     ,body('estado').isNumeric()
     .notEmpty().withMessage('El estado del vecino no puede estar vacio')
-    ,inputErrors
     ,updateVecino)
-routerVecino.delete('/:id'
+vecinosRoutes.delete('/:id'
     ,param('id')
     .isNumeric().withMessage('El id ingresado no es valido')
-    ,inputErrors
-    , deleteVecino)
+    ,deleteVecino)
 
-export default routerVecino
+export default vecinosRoutes
