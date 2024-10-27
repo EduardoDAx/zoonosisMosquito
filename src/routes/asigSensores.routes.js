@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createAsignacionSensores, getAsignacionSensores, getAsignacionSensoresById, updateAsignacionSensores, deleteAsignacionSensores } from "../controllers/asigSensores.controller";
+import { createAsignacionSensores, getAsignacionSensores, getAsignacionSensoresById, updateAsignacionSensores, deleteAsignacionSensores } from "../controllers/asigSensores.controller.js";
+import inputErrors from "../middleware/inputErrors.js";
 
 
 const asignacionSensoresRouters = Router()

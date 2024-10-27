@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createSitVivienda, getSitVivienda, getSitViviendaById, updateSitVivienda, deleteSitVivienda } from "../controllers/sitViviendas.controller";
+import { createSitVivienda, getSitVivienda, getSitViviendaById, updateSitVivienda, deleteSitVivienda } from "../controllers/sitViviendas.controller.js";
 
 
 const sitViviendasRoutes = Router()

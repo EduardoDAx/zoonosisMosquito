@@ -1,4 +1,4 @@
-import { Laboratorios } from "../models/Laboratorios"
+import { Laboratorios } from "../models/Laboratorios.js"
 
 export const createLaboratorio= async (req,res)=>{
     try {

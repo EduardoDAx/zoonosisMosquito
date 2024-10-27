@@ -1,4 +1,4 @@
-import { Barrios } from "../models/Barrios"
+import { Barrios } from "../models/Barrios.js"
 
 export const createBarrio= async (req,res)=>{
     try {

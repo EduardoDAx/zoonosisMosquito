@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createVisitas, getVisitas, getVisitasById, updateVisitas, deleteVisitas } from "../controllers/visitas.controller";
+import { createVisitas, getVisitas, getVisitasById, updateVisitas, deleteVisitas } from "../controllers/visitas.controller.js";
 
 const visitasRoutes = Router()
 

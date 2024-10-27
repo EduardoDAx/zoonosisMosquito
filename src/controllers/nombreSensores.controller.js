@@ -1,4 +1,4 @@
-import { NombreSensores } from "../models/NombreSensores"
+import { NombreSensores } from "../models/NombreSensores.js"
 
 export const createNombreSensores= async (req,res)=>{
     try {

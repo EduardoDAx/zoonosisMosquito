@@ -1,4 +1,4 @@
-import { Localidades } from "../models/Localidades"
+import { Localidades } from "../models/Localidades.js"
 
 export const createLocalidad= async (req,res)=>{
     try {

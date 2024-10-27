@@ -1,4 +1,4 @@
-import { Delegaciones } from "../models/Delegaciones"
+import { Delegaciones } from "../models/Delegaciones.js"
 
 export const createDelegacion= async (req,res)=>{
     try {

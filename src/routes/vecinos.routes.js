@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createVecino, getVecino, getVecinoById, updateVecino, deleteVecino } from "../controllers/vecinos.controller";
+import { createVecino, getVecino, getVecinoById, updateVecino, deleteVecino } from "../controllers/vecinos.controller.js";
 
 
 const vecinosRoutes = Router()

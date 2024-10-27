@@ -1,4 +1,4 @@
-import { Visitas } from "../models/Visitas"
+import { Visitas } from "../models/Visitas.js"
 
 export const createVisitas= async (req,res)=>{
     try {

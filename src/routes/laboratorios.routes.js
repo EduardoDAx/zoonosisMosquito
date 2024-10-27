@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createLaboratorio, getLaboratorio, getLaboratorioById, updateLaboratorio, deleteLaboratorio } from "../controllers/laboratorios.controller";
+import { createLaboratorio, getLaboratorio, getLaboratorioById, updateLaboratorio, deleteLaboratorio } from "../controllers/laboratorios.controller.js";
 
 
 const laboratoriosRoutes = Router()

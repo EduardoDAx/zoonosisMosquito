@@ -1,4 +1,4 @@
-import { AsignacionSensores } from "../models/AsigSensores"
+import { AsignacionSensores } from "../models/AsigSensores.js"
 
 export const createAsignacionSensores= async (req,res)=>{
     try {

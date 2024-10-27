@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createBarrio, getBarrio, getBarrioById, updateBarrio, deleteBarrio } from "../controllers/barrios.controller";
+import { createBarrio, getBarrio, getBarrioById, updateBarrio, deleteBarrio } from "../controllers/barrios.controller.js";
 
 
 const barrioRoutes = Router()

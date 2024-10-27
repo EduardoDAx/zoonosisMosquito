@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createNombreSensores, getNombreSensores, getNombreSensoresById, updateNombreSensores, deleteNombreSensores } from "../controllers/nombreSensores.controller";
+import { createNombreSensores, getNombreSensores, getNombreSensoresById, updateNombreSensores, deleteNombreSensores } from "../controllers/nombreSensores.controller.js";
 
 
 const nombreSensoresRoutes = Router()

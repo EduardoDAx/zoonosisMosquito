@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createLocalidad, getLocalidad, getLocalidadById, updateLocalidad, deleteLocalidad } from "../controllers/localidades.controller";
+import { createLocalidad, getLocalidad, getLocalidadById, updateLocalidad, deleteLocalidad } from "../controllers/localidades.controller.js";
 
 
 const localidadesRoutes = Router()

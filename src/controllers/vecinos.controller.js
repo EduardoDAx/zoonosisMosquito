@@ -1,4 +1,4 @@
-import { Vecinos } from "../models/Vecinos"
+import { Vecinos } from "../models/Vecinos.js"
 
 export const createVecino= async (req,res)=>{
     try {

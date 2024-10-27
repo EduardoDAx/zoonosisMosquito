@@ -1,4 +1,4 @@
-import { SitViviendas } from "../models/SitViviendas"
+import { SitViviendas } from "../models/SitViviendas.js"
 
 export const createSitVivienda= async (req,res)=>{
     try {

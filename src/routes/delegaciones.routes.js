@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {body, param} from "express-validator";
-import { createDelegacion, getDelegacion, getDelegacionById, updateDelegacion, deleteDelegacion } from "../controllers/delegaciones.controller";
+import { createDelegacion, getDelegacion, getDelegacionById, updateDelegacion, deleteDelegacion } from "../controllers/delegaciones.controller.js";
 
 const delegacionroutes = Router()
 
